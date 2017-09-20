@@ -3,7 +3,6 @@
 High level docstring
 '''
 #Modules
-import sys
 from os import listdir
 from os.path import isfile, join
 from wand.image import Image
@@ -22,7 +21,7 @@ def main():
         input_doc = directory_in_str + '/' + file #set the input path
         print(input_doc)
         output_doc = directory_in_str + '/' + file + '.jpg' #set the output path
-        img = Image(filename=input_doc) #set the input document 
+        img = Image(filename=input_doc) #set the input document
         img.save(filename=output_doc) #set the output image
 
 if __name__ == '__main__':
