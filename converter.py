@@ -5,7 +5,8 @@ High level docstring
 #Modules
 from os import listdir
 from os.path import isfile, join
-from wand.image import Image
+#from wand.image import Image
+import ghostscript
 
 #constants
 directory_in_str = '/Temp/Documents'
@@ -21,8 +22,18 @@ def main():
         input_doc = directory_in_str + '/' + file #set the input path
         print(input_doc)
         output_doc = directory_in_str + '/' + file + '.jpg' #set the output path
-        img = Image(filename=input_doc) #set the input document
-        img.save(filename=output_doc) #set the output image
+        
+        args = ["gs", # actual value doesn't matter
+            "-dNOPAUSE",
+            "-sDEVICE=jpeg",
+            "-r144",
+            "-sOutputFile=" + output_doc,
+            input_doc]
+        
+        ghostscript.Ghostscript(*args)
+        
+        #img = Image(filename=input_doc) #set the input document
+        #img.save(filename=output_doc) #set the output image
 
 if __name__ == '__main__':
     main()

@@ -8,7 +8,7 @@
             "name": "pr_alfa",
             "type": "python",
             "request": "launch",
-            "stopOnEntry": true,
+            "stopOnEntry": false,
             "pythonPath": "~/Documents/virtualenv/pr_alfa/bin/python",
             "program": "${file}",
             "cwd": "${workspaceRoot}",
